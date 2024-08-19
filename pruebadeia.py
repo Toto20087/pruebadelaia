@@ -12,6 +12,11 @@ import PIL.Image
 import os
 import requests
 from urllib3.exceptions import InsecureRequestWarning
+import supabase
+from dotenv import load_dotenv
+import os
+from supabase import create_client, Client
+
 
 API_KEY = "AIzaSyA_ByC3rvWhv8zCECdmxiZPIrCMZfqTdeY"
 
@@ -36,24 +41,13 @@ def get_html_from_url(url):
 url = "https://github.com"
 html_content = get_html_from_url(url)
 
-html_content
-
 model = genai.GenerativeModel(model_name="gemini-1.5-flash")
 response = model.generate_content(["Knowing the HTML i provide you, can you give me the classname of the SIGN IN clicleable?¨ONLY GIVE ME THE CLASSNAME, NOTHING ELSE", html_content])
 content = response.text
 print(content)
 
 content = content.strip()
-content
-
-!pip install supabase
-
-!pip install python-dotenv
-
-import supabase
-from dotenv import load_dotenv
-import os
-from supabase import create_client, Client
+print(content)
 
 url: str = "https://segwpauegxdqyfolvqrd.supabase.co"
 key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlZ3dwYXVlZ3hkcXlmb2x2cXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyMjQxMzQsImV4cCI6MjAzMTgwMDEzNH0.8V-VAfb2983I8RkqEPHc5t7YyxbbBFbbjZb2eCnEGRE"
@@ -70,7 +64,7 @@ def check_value_exists(content: str) -> bool:
         return False
 
 check = check_value_exists(content)
-check
+print(check)
 
 if (check == False):
   cont = (
