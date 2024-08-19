@@ -16,7 +16,11 @@ url: str = "https://segwpauegxdqyfolvqrd.supabase.co"
 key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlZ3dwYXVlZ3hkcXlmb2x2cXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyMjQxMzQsImV4cCI6MjAzMTgwMDEzNH0.8V-VAfb2983I8RkqEPHc5t7YyxbbBFbbjZb2eCnEGRE"
 supabase: Client = create_client(url, key)
 
-@app.post('/process')
+@app.get("/")
+async def root():
+    return {"message": "Bienvenido a mi API"}
+
+@app.post('/proces')
 async def process_content(request: Request):
     url = "https://github.com"
     
