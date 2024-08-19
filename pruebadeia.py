@@ -18,8 +18,7 @@ supabase: Client = create_client(url, key)
 
 @app.post('/process')
 async def process_content(request: Request):
-    content = await request.json()
-    url = content.get('url')
+    url = "https://github.com"
     
     def get_html_from_url(url):
         try:
