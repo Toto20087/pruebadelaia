@@ -17,7 +17,7 @@ url: str = "https://segwpauegxdqyfolvqrd.supabase.co"
 key: str = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNlZ3dwYXVlZ3hkcXlmb2x2cXJkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTYyMjQxMzQsImV4cCI6MjAzMTgwMDEzNH0.8V-VAfb2983I8RkqEPHc5t7YyxbbBFbbjZb2eCnEGRE"
 supabase: Client = create_client(url, key)
 
-@app.route('https://pruebadelaia.onrender.com/process/', methods=['POST'])
+@app.route('/process', methods=['POST'])
 def process_content():
     content = request.json
     url = content.get('url')
@@ -52,4 +52,4 @@ def process_content():
         return jsonify({"status": "exists", "data": cont.data}), 200
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=10000)
