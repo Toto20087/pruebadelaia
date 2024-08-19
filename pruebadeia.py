@@ -20,6 +20,10 @@ supabase: Client = create_client(url, key)
 async def root():
     return {"message": "Bienvenido a mi API"}
 
+@app.get('/process')
+async def process_content_get():
+    return {"message": "Este es un endpoint GET de prueba"}
+
 @app.post('/proces')
 async def process_content(request: Request):
     url = "https://github.com"
